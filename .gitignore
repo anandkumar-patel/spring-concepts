@@ -1,0 +1,8 @@
+file-upload-download/.gitignore
+file-upload-download/.mvn/
+masterslave/.gitignore
+masterslave/.mvn/
+mvc-model-attribute/.gitignore
+mvc-model-attribute/.mvn/
+spring-data-jpa/.gitignore
+spring-data-jpa/.mvn/
