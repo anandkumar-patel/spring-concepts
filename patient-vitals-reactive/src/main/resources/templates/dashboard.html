@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Patient Vitals Monitoring</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        // Connect to the real-time patient vitals stream
+        function connectToVitalsStream() {
+            const eventSource = new EventSource("/patient-vitals");
+
+            // When new vitals data is received
+            eventSource.onmessage = function(event) {
+                const data = event.data;
+
+                // Display the updated vitals in the 'vitals' div
+                document.getElementById("vitals").innerText = data;
+            };
+
+            // Handle errors
+            eventSource.onerror = function() {
+                console.error("Error receiving vitals data");
+            };
+        }
+
+        // Connect to the stream when the page loads
+        window.onload = connectToVitalsStream;
+    </script>
+</head>
+<body>
+    <h1>Real-Time Patient Vitals Dashboard</h1>
+    
+    <!-- Initial content can be rendered by Thymeleaf -->
+    <div id="vitals">
+        Loading real-time patient vitals...
+    </div>
+</body>
+</html>

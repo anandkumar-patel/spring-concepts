@@ -21,12 +21,11 @@ public class UserController {
 	}
 	
 	@PostMapping("/register")
-	public String register(@ModelAttribute("user") User user, Model model) {
+	public String register(@ModelAttribute User user, Model model) {
 		System.out.println("Developed BY :" + model.getAttribute("developer"));
         model.addAttribute("message", "User registered successfully!");
 		return "result";
 	}
-	
 	
 	@ModelAttribute
     public void addAttributes(Model model) {
