@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import anand.entity.Comment;
 import anand.entity.Post;
-import anand.entity.PostComment;
 import anand.service.PostService;
 
 @RestController
@@ -36,8 +36,8 @@ public class PostController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Post> findPostByPostid(@PathVariable Long id) {
-		Post post = postService.findPostByPostid(id);
+	public ResponseEntity<Post> findPostByPostId(@PathVariable Long id) {
+		Post post = postService.findPostByPostId(id);
 		if(null != post) {
 			return ResponseEntity.ok(post);
 		} else {
@@ -72,7 +72,7 @@ public class PostController {
 	}
 
 	@GetMapping("/{postid}/comments")
-	public ResponseEntity<List<PostComment>> getAllComment(@PathVariable Long postid) {
+	public ResponseEntity<List<Comment>> getAllComment(@PathVariable Long postid) {
 		return ResponseEntity.ok(postService.getAllComment(postid));
 	}
 

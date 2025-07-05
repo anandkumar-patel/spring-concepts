@@ -99,7 +99,7 @@ public class UserController {
 		return userService.findByAgeBetween(startAge, endAge);
 	}
 
-    @GetMapping("/namelike/{name}")
+    @GetMapping("/name-like/{name}")
 	public List<User> findByNameLike(String name) {
 		return userService.findByNameLike(name);
 	}
@@ -124,7 +124,7 @@ public class UserController {
 		return userService.findFirstByOrderByAgeDesc();
 	}
 
-    @GetMapping("/top3/orderbyname/asc")
+    @GetMapping("/top3/order-by-name/asc")
 	public List<User> findTop3ByOrderByNameAsc() {
 		return userService.findTop3ByOrderByNameAsc();
 	}

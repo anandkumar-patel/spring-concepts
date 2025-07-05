@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import anand.entity.Comment;
 import anand.entity.Post;
-import anand.entity.PostComment;
 import anand.entity.User;
 import anand.repository.CommentRepository;
 import anand.repository.PostRepository;
@@ -25,7 +25,7 @@ public class PostService {
 		return postRepository.findAll();
 	}
 
-	public Post findPostByPostid(Long id) {
+	public Post findPostByPostId(Long id) {
 		return postRepository.findById(id).orElse(null);
 	}
 
@@ -39,8 +39,8 @@ public class PostService {
 		return postRepository.save(post);
 	}
 
-	public Post updatePost(Long postid, Post postDetail) {
-		Post post = postRepository.findById(postid).orElse(null);
+	public Post updatePost(Long postId, Post postDetail) {
+		Post post = postRepository.findById(postId).orElse(null);
 		if (null != post) {
 			post.setTitle(postDetail.getTitle());
 			return postRepository.save(post);
@@ -59,7 +59,7 @@ public class PostService {
 
 	}
 	
-	public List<PostComment> getAllComment(Long postid) {
+	public List<Comment> getAllComment(Long postId) {
 		return commentRepository.findAll();
 	}
 }
